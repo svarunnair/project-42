@@ -26,6 +26,7 @@ branchController.post("/", async (req, res) => {
     }
 
     const hospital = user.hospitals.id("66d4a4f5543e63a92da5d00e");
+    console.log('..hospital..',hospital)
 
     if (!hospital) {
       return res.status(404).send({
