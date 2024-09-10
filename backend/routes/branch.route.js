@@ -17,6 +17,7 @@ branchController.post("/", async (req, res) => {
   try {
     const userId = "66d4a4f5543e63a92da5d00d";
     const user = await UserModel.findById(userId);
+    console.log("user", user);
 
     if (!user) {
       return res.status(404).send({
