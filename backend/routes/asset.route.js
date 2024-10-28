@@ -120,6 +120,7 @@ assetController.post("/", async (req, res) => {
       service: newService,
     };
 
+    console.log("-newAsset---------", newAsset);
     department.asset.push(newAsset);
 
     await user.save();
