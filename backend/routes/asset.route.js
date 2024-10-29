@@ -41,6 +41,7 @@ assetController.post("/", async (req, res) => {
         message: "Issue name required and cannot be empty.",
       });
     }
+    console.log(issue)
 
     if (!description) {
       return res.status(400).send({
