@@ -7,6 +7,13 @@ userController.post('/',async(req,res)=>{
     if (!name || !email || !password || !role) {
      res.status(400).send({success: false, message: "Name, email,password,role are required and cannot be empty.."});
     }
+  if (!["ADMIN", "USER", "GUEST"].includes(role)) {
+    return res.status(400).send({
+      success: false,
+      message:
+        "Role is not valid. Only ADMIN, USER, or GUEST roles are allowed.",
+    });
+  }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).send({success: false,message:"Invalid email format."});
