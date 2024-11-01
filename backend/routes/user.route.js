@@ -4,6 +4,7 @@ const userController = Router();
 
 userController.post('/',async(req,res)=>{
     const {name,email,password,hospitals,role} =req.body
+    console.log(",,.name.,name..", name);
     if (!name || !email || !password || !role) {
      res.status(400).send({success: false, message: "Name, email,password,role are required and cannot be empty.."});
     }
