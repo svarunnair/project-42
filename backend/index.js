@@ -12,10 +12,13 @@ const { userController } = require("./routes/user.route");
 const {imgController} = require("./routes/image.route");
 const { roleController } = require("./routes/role.route");
 const { branchController } = require("./routes/branch.route");
+const { loginController } = require("./routes/authRoute/login.route");
 app.use(express.json())
 require("dotenv").config()
 app.use(cors())
 
+
+app.use("/login", loginController);
 app.use('/user',userController)
 app.use('/asset',assetController)
 app.use('/dep',depController)

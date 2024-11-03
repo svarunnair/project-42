@@ -4,25 +4,26 @@ const { departmentSchema } = require("./department.modal");
 
 
 const branchSchema=mongoose.Schema({
-    branchName:{type:String,require:true},
+    branchName:{type:String,required:true},
     department:[departmentSchema]
 })
 
 
 const hospitalSchema=mongoose.Schema({
-    hospName:{type:String,require:true},
+    hospName:{type:String,required:true},
     branch:[branchSchema]
 })
 
 const roles = ["ADMIN", "USER", "GUEST"];
+
 const userSchema = mongoose.Schema({
-  name: { type: String, require: true },
-  email: { type: String, require: true },
-  password: { type: String, require: true },
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
   hospitals: [hospitalSchema],
   role: { type: String, enum: roles, required: true },
 });
 
-const UserModel=mongoose.model("bmi", userSchema)
+// const UserModel=mongoose.model("bmi", userSchema)
 
-module.exports=UserModel
+module.exports = userSchema;
